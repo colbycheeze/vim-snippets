@@ -16,11 +16,6 @@ endglobal
 # Doctypes #
 ############
 
-snippet doctype "HTML - 5.0 (doctype)" b
-<!DOCTYPE html>
-
-endsnippet
-
 #############
 # Shortcuts #
 #############
@@ -62,17 +57,6 @@ endsnippet
 
 snippet option "Option (option)"
 &#x2325;
-endsnippet
-
-#######################
-# Conditional inserts #
-#######################
-snippet ! "IE Conditional Comment: Internet Explorer"
-<!--[if IE]>${1:       IE Conditional Comment: Internet Explorer          }<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: NOT Internet Explorer"
-<!--[if !IE]><!-->${1:  IE Conditional Comment: NOT Internet Explorer      }<!-- <![endif]-->$0
 endsnippet
 
 #############
@@ -122,13 +106,13 @@ snippet div "<div>" w
 endsnippet
 
 snippet div. "<div> with class" w
-<div`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+<div`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
 	$0
 </div>
 endsnippet
 
 snippet div# "<div> with ID" w
-<div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' class="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+<div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' className="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
 	$0
 </div>
 endsnippet
@@ -148,7 +132,7 @@ snippet h1 "XHTML <h1>" w
 endsnippet
 
 snippet h1. "<h1> with class" w
-<h1`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+<h1`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
 	$0
 </h1>
 endsnippet
@@ -158,7 +142,7 @@ snippet h2 "XHTML <h2>" w
 endsnippet
 
 snippet h2. "<h2> with class" w
-<h2`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+<h2`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
 	$0
 </h2>
 endsnippet
@@ -168,7 +152,7 @@ snippet h3 "XHTML <h3>" w
 endsnippet
 
 snippet h3. "<h3> with class" w
-<h3`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+<h3`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
 	$0
 </h3>
 endsnippet
@@ -178,7 +162,7 @@ snippet h4 "XHTML <h4>" w
 endsnippet
 
 snippet h4. "<h4> with class" w
-<h4`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+<h4`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
 	$0
 </h4>
 endsnippet
@@ -188,7 +172,7 @@ snippet h5 "XHTML <h5>" w
 endsnippet
 
 snippet h5. "<h5> with class" w
-<h5`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+<h5`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
 	$0
 </h5>
 endsnippet
@@ -198,7 +182,7 @@ snippet h6 "XHTML <h6>" w
 endsnippet
 
 snippet h6. "<h6> with class" w
-<h6`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+<h6`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
 	$0
 </h6>
 endsnippet
@@ -247,7 +231,7 @@ snippet a "Link" w
 endsnippet
 
 snippet a. "Link with class" w
-<a class="${1:name}" href="${2:http://www.${3:url.com}}"${4: target="_blank"}>${5:Anchor Text}</a>
+<a className="${1:name}" href="${2:http://www.${3:url.com}}"${4: target="_blank"}>${5:Anchor Text}</a>
 endsnippet
 
 snippet p "paragraph" w
@@ -255,7 +239,7 @@ snippet p "paragraph" w
 endsnippet
 
 snippet p. "paragraph with class" w
-<p class="${1:name}">$0</p>
+<p className="${1:name}">$0</p>
 endsnippet
 
 snippet li "list item" w
@@ -263,7 +247,7 @@ snippet li "list item" w
 endsnippet
 
 snippet li. "list item with class" w
-<li class="${1:name}">$0</li>
+<li className="${1:name}">$0</li>
 endsnippet
 
 snippet ul "unordered list" w
@@ -271,7 +255,7 @@ snippet ul "unordered list" w
 endsnippet
 
 snippet ul. "unordered list with class" w
-<ul class="${1:name}">$0</ul>
+<ul className="${1:name}">$0</ul>
 endsnippet
 
 snippet td "table cell" w
@@ -291,7 +275,7 @@ snippet title "XHTML <title>" w
 endsnippet
 
 snippet fieldset "Fieldset" w
-<fieldset id="${1/[\w\d]+|( )/(?1:_:\L$0\E)/g}" ${2:class="${3:}"}>
+<fieldset id="${1/[\w\d]+|( )/(?1:_:\L$0\E)/g}" ${2:className="${3:}"}>
 	<legend>$1</legend>
 	$0
 </fieldset>
