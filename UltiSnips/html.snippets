@@ -15,29 +15,6 @@ endglobal
 ############
 # Doctypes #
 ############
-snippet doctype "DocType XHTML 1.0 Strict" b
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-endsnippet
-
-snippet doctype "DocType XHTML 1.0 Transitional" b
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-endsnippet
-
-snippet doctype "DocType XHTML 1.1" b
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-endsnippet
-
-snippet doctype "HTML - 4.0 Transitional (doctype)" b
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-	"http://www.w3.org/TR/html4/loose.dtd">
-
-endsnippet
 
 snippet doctype "HTML - 5.0 (doctype)" b
 <!DOCTYPE html>
@@ -90,30 +67,6 @@ endsnippet
 #######################
 # Conditional inserts #
 #######################
-snippet ! "IE Conditional Comment: Internet Explorer 5_0 only"
-<!--[if IE 5.0]>${1:IE Conditional Comment: Internet Explorer 5.0 only }<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 5_5 only"
-<!--[if IE 5.5000]>${1:IE Conditional Comment: Internet Explorer 5.5 only }<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 5_x"
-<!--[if lt IE 6]>${1:IE Conditional Comment: Internet Explorer 5.x      }<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 6 and below"
-<!--[if lte IE 6]>${1:IE Conditional Comment: Internet Explorer 6 and below }<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 6 only"
-<!--[if IE 6]>${1:IE Conditional Comment: Internet Explorer 6 only   }<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 7+"
-<!--[if gte IE 7]>${1:IE Conditional Comment: Internet Explorer 7 and above }<![endif]-->$0
-endsnippet
-
 snippet ! "IE Conditional Comment: Internet Explorer"
 <!--[if IE]>${1:       IE Conditional Comment: Internet Explorer          }<![endif]-->$0
 endsnippet
@@ -156,10 +109,6 @@ snippet mailto "XHTML <a mailto: >" w
 <a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
 endsnippet
 
-snippet base "XHTML <base>" w
-<base href="$1"${2: target="$3"}`!p x(snip)`>
-endsnippet
-
 snippet body "<body>"
 <body>
 	$0
@@ -178,7 +127,7 @@ snippet div. "<div> with class" w
 </div>
 endsnippet
 
-snippet div# "<div> with ID & class" w
+snippet div# "<div> with ID" w
 <div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' class="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
 	$0
 </div>
@@ -198,16 +147,60 @@ snippet h1 "XHTML <h1>" w
 <h1>$0</h1>
 endsnippet
 
+snippet h1. "<h1> with class" w
+<h1`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</h1>
+endsnippet
+
 snippet h2 "XHTML <h2>" w
 <h2>$0</h2>
+endsnippet
+
+snippet h2. "<h2> with class" w
+<h2`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</h2>
 endsnippet
 
 snippet h3 "XHTML <h3>" w
 <h3>$0</h3>
 endsnippet
 
+snippet h3. "<h3> with class" w
+<h3`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</h3>
+endsnippet
+
 snippet h4 "XHTML <h4>" w
 <h4>$0</h4>
+endsnippet
+
+snippet h4. "<h4> with class" w
+<h4`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</h4>
+endsnippet
+
+snippet h5 "XHTML <h5>" w
+<h5>$0</h5>
+endsnippet
+
+snippet h5. "<h5> with class" w
+<h5`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</h5>
+endsnippet
+
+snippet h6 "XHTML <h6>" w
+<h6>$0</h6>
+endsnippet
+
+snippet h6. "<h6> with class" w
+<h6`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</h6>
 endsnippet
 
 snippet head "XHTML <head>"
@@ -253,12 +246,24 @@ snippet a "Link" w
 <a href="${1:http://www.${2:url.com}}"${3: target="_blank"}>${4:Anchor Text}</a>
 endsnippet
 
+snippet a. "Link with class" w
+<a class="${1:name}" href="${2:http://www.${3:url.com}}"${4: target="_blank"}>${5:Anchor Text}</a>
+endsnippet
+
 snippet p "paragraph" w
 <p>$0</p>
 endsnippet
 
+snippet p. "paragraph with class" w
+<p class="${1:name}">$0</p>
+endsnippet
+
 snippet li "list item" w
 <li>$0</li>
+endsnippet
+
+snippet li. "list item with class" w
+<li class="${1:name}">$0</li>
 endsnippet
 
 snippet ul "unordered list" w
