@@ -268,6 +268,14 @@ snippet body "<body>"
 </body>
 endsnippet
 
+snippet span "<span>" w
+<span>$0</span>
+endsnippet
+
+snippet span. "<span> with class" w
+<span`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>$0</span>
+endsnippet
+
 snippet div "<div>" w
 <div>
 	$0
