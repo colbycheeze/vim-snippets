@@ -84,7 +84,7 @@ snippet input "Input with Label" w
 endsnippet
 
 snippet input "XHTML   <input>" w
-<input type="${1:text/submit/hidden/button}" name="${2:some_name}" value="$3"${4: id="${5:$2}"}`!p x(snip)`>
+<input type="${1:text/submit/hidden/button/radio}" name="${2:some_name}" value="$3"${4: id="${5:$2}"}`!p x(snip)`>
 endsnippet
 
 
@@ -100,7 +100,6 @@ snippet select "Select Box" w
 </select>
 endsnippet
 
-
 snippet textarea "XHTML   <textarea>" w
 <textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">$0</textarea>
 endsnippet
@@ -113,6 +112,14 @@ snippet body "<body>"
 <body>
 	$0
 </body>
+endsnippet
+
+snippet span "<span>" w
+<span>$0</span>
+endsnippet
+
+snippet span. "<span> with class" w
+<span`!p snip.rv=' class="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>$0</span>
 endsnippet
 
 snippet div "<div>" w
