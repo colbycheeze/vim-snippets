@@ -8,7 +8,7 @@ getElement${1/(T)|.*/(?1:s)/}By${1:T}${1/(T)|(I)|.*/(?1:agName)(?2:d)/}('$2')
 endsnippet
 
 snippet f "Anonymous function"
-function(${1}) {
+(${1}) => {
 	${VISUAL}$0
 }
 endsnippet
@@ -40,26 +40,14 @@ ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
 
 endsnippet
 
-snippet for "for (...) {...} (counting up)" b
-for (var ${1:i} = 0, ${2:len} = ${3:Things.length}; $1 < $2; $1++) {
-	${VISUAL}$0
-}
-endsnippet
-
-snippet ford "for (...) {...} (counting down, faster)" b
-for (var ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {
-	${VISUAL}$0
-}
-endsnippet
-
 snippet fun "function (fun)"
 function ${1:function_name}(${2:argument}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet vf "Function assigned to var"
-${1:var }${2:function_name} = function $2(${3}) {
+snippet cf "Function assigned to var"
+${1:const }${2:function_name} = $2(${3}) => {
 	${VISUAL}$0
 };
 endsnippet
@@ -74,14 +62,6 @@ snippet timeout "setTimeout function"
 setTimeout(function() {
 	${VISUAL}$0
 }${2:.bind(${3:this})}, ${1:10});
-endsnippet
-
-snippet fi "for prop in obj using hasOwnProperty" b
-for (${1:prop} in ${2:obj}){
-	if ($2.hasOwnProperty($1)) {
-		${VISUAL}$0
-	}
-}
 endsnippet
 
 # Snippets for Console Debug Output
@@ -156,16 +136,6 @@ endsnippet
 
 snippet cw "console.warn" b
 console.warn(${1:"${2:value}"});
-endsnippet
-
-# AMD (Asynchronous Module Definition) snippets
-
-snippet def "define an AMD module"
-define(${1:optional_name, }[${2:'jquery'}], ${3:callback});
-endsnippet
-
-snippet req "require an AMD module"
-require([${1:'dependencies'}], ${2:callback});
 endsnippet
 
 # vim:ft=snippets:
@@ -296,6 +266,78 @@ snippet div# "<div> with ID" w
 <div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' className="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
 	$0
 </div>
+endsnippet
+
+snippet header "<header>" w
+<header>
+	$0
+</header>
+endsnippet
+
+snippet header. "<header> with class" w
+<header`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</header>
+endsnippet
+
+snippet header# "<header> with ID" w
+<header`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' className="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+	$0
+</header>
+endsnippet
+
+snippet footer "<footer>" w
+<footer>
+	$0
+</footer>
+endsnippet
+
+snippet footer. "<footer> with class" w
+<footer`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</footer>
+endsnippet
+
+snippet footer# "<footer> with ID" w
+<footer`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' className="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+	$0
+</footer>
+endsnippet
+
+snippet aside "<aside>" w
+<aside>
+	$0
+</aside>
+endsnippet
+
+snippet aside. "<aside> with class" w
+<aside`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</aside>
+endsnippet
+
+snippet aside# "<aside> with ID" w
+<aside`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' className="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+	$0
+</aside>
+endsnippet
+
+snippet section "<section>" w
+<section>
+	$0
+</section>
+endsnippet
+
+snippet section. "<section> with class" w
+<section`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</section>
+endsnippet
+
+snippet section# "<section> with ID" w
+<section`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' className="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+	$0
+</section>
 endsnippet
 
 snippet form "XHTML <form>" w
