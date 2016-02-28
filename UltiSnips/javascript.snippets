@@ -13,6 +13,16 @@ snippet f "Anonymous function"
 }
 endsnippet
 
+snippet fs "Simple Anonymous function"
+(${1}) => ${VISUAL}$0
+endsnippet
+
+snippet fl "Anonymous function returning an object literal"
+(${1}) => (
+	${VISUAL}$0
+)
+endsnippet
+
 snippet '':f "object method string"
 '${1:${2:#thing}:${3:click}}': function(element) {
 	${VISUAL}$0
@@ -46,10 +56,16 @@ function ${1:function_name}(${2:argument}) {
 }
 endsnippet
 
-snippet cf "Function assigned to var"
-${1:const }${2:function_name} = $2(${3}) => {
+snippet cf "Function assigned to const"
+${1:const }${2:function_name} = (${3}) => {
 	${VISUAL}$0
 };
+endsnippet
+
+snippet cfl "Function assigned to const returning a literal"
+${1:const }${2:function_name} = (${3}) => (
+	${VISUAL}$0
+);
 endsnippet
 
 snippet iife "Immediately-Invoked Function Expression (iife)"
